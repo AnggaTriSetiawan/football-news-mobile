@@ -56,13 +56,12 @@ class LeftDrawer extends StatelessWidget {
             leading: const Icon(Icons.post_add),
             title: const Text('Add News'),
             onTap: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const NewsFormPage()),
               );
             },
           ),
-
         ],
       ),
     );
