@@ -17,7 +17,7 @@ class NewsEntry {
     int newsViews;
     DateTime createdAt;
     bool isFeatured;
-    int? userId;
+    int userId;
 
     NewsEntry({
         required this.id,
@@ -32,15 +32,15 @@ class NewsEntry {
     });
 
     factory NewsEntry.fromJson(Map<String, dynamic> json) => NewsEntry(
-        id: json["id"],
-        title: json["title"],
-        content: json["content"],
-        category: json["category"],
-        thumbnail: json["thumbnail"],
-        newsViews: json["news_views"],
-        createdAt: DateTime.parse(json["created_at"]),
-        isFeatured: json["is_featured"],
-        userId: json["user_id"],
+        id: json["id"] ?? "",
+        title: json["title"] ?? "",
+        content: json["content"] ?? "",
+        category: json["category"] ?? "",
+        thumbnail: json["thumbnail"] ?? "" ,
+        newsViews: json["news_views"] ?? 0,
+        createdAt: DateTime.tryParse(json['created_at']?.toString() ?? '') ?? DateTime.now(),
+        isFeatured: json["is_featured"] ?? false,
+        userId: json["user_id"] ?? 0,
     );
 
     Map<String, dynamic> toJson() => {
